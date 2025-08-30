@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png"> <!-- Ikona aplikacji iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
     <link rel="icon" href="Herb_Polski.png">
     <title>mObywatel</title>
     <style>
@@ -195,6 +200,29 @@
         </div>
     </div>
     <script>
+        if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('Service Worker zarejestrowany z zakresem:', registration.scope);
+      })
+      .catch(error => {
+        console.log('Rejestracja Service Workera nie powiodła się:', error);
+      });
+  });
+}
+        self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open('my-app-cache').then((cache) => {
+      return cache.addAll([
+        '/index.html',
+        '/style.css',
+        '/app.js',
+        '/icons/icon-192x192.png'
+      ]);
+    })
+  );
+});
         function toggleAdminPanel() {
             const adminPanel = document.getElementById('adminPanel');
             adminPanel.classList.toggle('show');
@@ -232,6 +260,7 @@
   
 </body>
 </html>
+
 
 
 
