@@ -1,8 +1,11 @@
 {
-  "name": "Mobywatel",
+  "name": "Moja Aplikacja Pełnoekranowa",
   "short_name": "Aplikacja",
-  "description": "",
+  "description": "Świetna aplikacja pełnoekranowa.",
   "start_url": "/index.html",
+  "display": "standalone",  // Ten tryb zapewni uruchomienie aplikacji w pełnym ekranie.
+  "background_color": "#ffffff",  // Kolor tła dla ekranu powitalnego.
+  "theme_color": "#000000",  // Kolor paska stanu (na urządzeniach mobilnych).
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
