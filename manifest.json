@@ -1,10 +1,10 @@
 {
-  "name": "Moja Aplikacja Pełnoekranowa",
-  "short_name": "Aplikacjaa",
-  "description": "Świetna aplikacja pełnoekranowa.",
-  "start_url": "/index.html",
-  "display": "standalone",  // Ten tryb zapewni uruchomienie aplikacji w pełnym ekranie.
-  "background_color": "#ffffff",  // Kolor tła dla ekranu powitalnego.
-  "theme_color": "#000000",  // Kolor paska stanu (na urządzeniach mobilnych).
+  "name": "Moja aplikacja",
+  "short_name": "App",
+  "start_url": "/test1/index.html",
+  "scope": "/test1/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
   
 }
