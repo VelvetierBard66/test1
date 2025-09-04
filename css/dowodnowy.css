@@ -1,356 +1,307 @@
-body {
-    font-family: "Roboto Medium", "Roboto", sans-serif;
-    letter-spacing: 0.2px;
-}
+<html><head>
+    <script src="./sw.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>mObywatel 2.0</title>
+    <link rel="shortcut icon" href="./dowod_files/favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#fff">
+    <meta name="next-head-count" content="5">
+    <link rel="preload" href="./dowod_files/main.css" as="style">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="./dowod_files/main.css" data-n-g="">
+	<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="manifest" href="./manifest.json">
+
+    <noscript data-n-css=""></noscript>
+    <style>
+        body {
+            overscroll-behavior: contain;
+        }
+
+        .navbar {
+            overflow: hidden;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 9999;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+        }
+		.info-section p:first-of-type {
+			font-size: 16px;
+			font-weight: 500;
+			display: flex; /* Ustawienie elementów w jednej linii */
+			align-items: center; /* Wyśrodkowanie ikon w pionie */
+		}
+
+		.info-section .center-icons {
+			display: flex; /* Ustawienie kropek w jednej linii */
+			justify-content: center; /* Wyśrodkowanie kropek */
+			align-items: center; /* Wyrównanie w pionie */
+			margin-top: 16px; /* Odstęp od treści powyżej */
+		}
+
+		
+		.info-section {
+            background-color: #dfecf9;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            color: #2f353f;
+            position: relative;
+            transition: transform 0s;
+        }
+        .info-section.blue {
+            background-color: #dfecf9;
+        }
+        .info-section img {
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+		.info-section.blue .center-icons {
+			display: flex; /* Ustawienie kropek w jednej linii */
+			justify-content: center; /* Wyśrodkowanie kropek */
+			align-items: center; /* Wyrównanie w pionie */
+			margin-top: 16px; /* Odstęp od treści powyżej */
+		}
+
+		.info-section.blue .center-icons img {
+			margin: 0 5px; /* Równy odstęp między kropkami */
+			align-items: middle;
+		}
+        .info-section p {
+            margin: 8px 0;
+            color: #2f353f;
+        }
+        .info-section p:first-of-type {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .info-section p:last-of-type {
+            margin-left: 32px;
+            font-size: 14px;
+        }
+        .info-section .center-icons {
+            text-align: center;
+            margin-top: 16px;
+        }
+        .info-section .center-icons img {
+            margin: 0 4px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .info-section .close-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        @supports (-webkit-touch-callout: none) {
+            .dzit {
+                margin-bottom: 1.0rem;
+            }
+        }
+
+        .photo {
+            position: relative;
+            filter: grayscale(100%);
+            z-index: 1;
+            display: block;
+        }
+
+        #gradient {
+            position: relative;
+            bottom: 10px;
+            background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            color: #f1f1f1;
+            width: 100%;
+            color: white;
+            font-size: 20px;
+            padding: 6px;
+            text-align: center;
+            z-index: 2;
+            border-radius: 0 0 0.5rem 0.5rem;
+            margin: 0;
+        }
+	
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Dolny pasek nawigacyjny */
+        .BottomNav_bottomNav__JQdpA {
+            width: 100%;
+            height: 90px;
+            position: fixed;
+            bottom: 0;
+            background-color: #f5f6fb;
+            border-top: 1px solid #d6d6d6;
+            z-index: 99;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            left: 0;
+        }
+
+        .BottomNav_bnTab__WzkWH {
+            width: 25%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 10px;
+        }
+
+        .BottomNav_bnTab__WzkWH img {
+            height: 24px;
+            margin-bottom: 4px;
+        }
+
+        .BottomNav_bnTab__WzkWH span {
+            font-size: .7em;
+            font-weight: 300;
+        }
+
+        .BottomNav_activeText__6iAIF {
+            color: var(--blue-active);
+        }
+
+        /* Stylizacja dla kliknięcia */
+        .BottomNav_bnTab__WzkWH img:active,
+        .BottomNav_bnTab__WzkWH img:focus,
+        .BottomNav_bnTab__WzkWH:active,
+        .BottomNav_bnTab__WzkWH:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .BottomNav_bnTab__WzkWH {
+            -webkit-tap-highlight-color: transparent;
+        }
+		</style><link rel="stylesheet" href="./css/dowodnowy.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    @media screen and (orientation: portrait) {
+        body {
+            transform: rotate(0deg);
+        }
+    }
+</style>
+</head>
+<body class="">
+    <header>
+        <a href="dashboard.html">
+            <img src="./dowod_files/pozdro.svg" alt="leftarrow">
+        </a>
+        <span style="font-family: 'Inter'; font-weight: 900; position: relative; left: -6%;">mDowód</span>
+        <img style="width: 25px; height: 25px;" src="./dowod_files/madziamojakotka123.svg" alt="">
+    </header>
+	 <div class="info-section" id="info-section" style="margin-left: 20px; margin-right: 20px;">
+		<p>
+			<img src="./dowod_files/normal_u391.svg" alt="Info Icon">
+			Kiedy nie skorzystasz z mDowodu
+		</p>
+		<p>
+			Gdy załatwiasz sprawę w banku (do 31 sierpnia), wyjeżdżasz za granicę i składasz wniosek o dowód osobisty.
+		</p>
+		<div class="center-icons">
+			<img src="./dowod_files/normal_u394.svg" alt="Left Icon" id="left-icon" >
+			<img src="./dowod_files/normal_u393.svg" alt="Right Icon" id="right-icon" >
+		</div>
+	</div>
+	<div class="info-section blue" id="blue-section" style="display: none; margin-left: 20px; margin-right: 20px;">
+		<p>
+			<img src="./dowod_files/normal_u391.svg" alt="Info Icon">
+			A kiedy skorzystasz z mDowodu
+		</p>
+		<p>
+			We wszystkich innych sytuacjach – na przykład w urzędzie, sądzie, przychodni, na poczcie czy u notariusza.
+		</p>
+		<div class="center-icons">
+			<img src="./dowod_files/normal_u393.svg" alt="Right Icon" id="right-icon-blue">
+			<img src="./dowod_files/normal_u394.svg" alt="Left Icon" id="left-icon-blue">
+		</div>
+		<div class="close-icon" id="close-icon">
+			<img src="./dowod_files/normal_u408.svg" alt="Close Icon">
+		</div>
+	</div>
+    <p class="czas">Czas: 20:32:33 15.05.2024</p>
+    <script src="./dowod_files/timenew.js"></script>
+    <main>
+        <section id="lew">
+            <img src="zdjecie.png" class="object-contain w-full rounded-lg photo" style="margin: 0;" alt="Brak Zdjęcia">
+            <br>
+			<img src="./dowod_files/flaga.gif" alt="flaga" id="flaga" style="margin: 0;">
+            <div id="rzecz">
+                <img src="./dowod_files/godlo.gif" alt="godlo" id="godlo">
+                <p>Rzeczpospolita<br>Polska</p>
+            </div>
+        </section>
+        <section id="praw">
+            <p>MELANIA</p>
+            <p class="sub">Imię (Imiona)</p><br>
+            <p>DOBROWOLSKA</p>
+            <p class="sub">Nazwiskо</p><br>
+            <p>POLSKIE</p>
+            <p class="sub">Obywatelstwo</p><br>
+            <p>01.01.2007</p>
+            <p class="sub">Data urodzenia</p><br>
+            <p>07210106269</p>
+            <p class="sub">Numer PЕSEL</p><br>
+        </section>
+    </main>
+	<section id="bottom">
+        <img src="./dowod_files/checkmark.svg" alt="checkmark">
+        <p>Dokument ważny</p>
+    </section>
 
 
-header {
-    position: sticky;
-    top: -1;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    padding: 24px;
-    font-weight: 600;
-    color: #1d1d1d;
-    justify-content: space-between;
-    font-size: 18px;
-    background-color: #ffffff;
-}
+    <!-- Sekcja z potwierdz swoje dane i dane dokumentu + zdjecia -->
+    <a class="buto" style="cursor: pointer; display: flex; align-items: center; padding: 40px 20px ; border-radius: 10px; background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <img  src="./dowod_files/checkbo.png" alt="checkbox">
+        <p style="margin-left: 10px; font-weight: bold;">Potwierdź swoje dane</p>
+        <img src="./dowod_files/arrow.svg" alt="arrow" id="arrow">
+    </a>
 
-p.czas {
-    text-align: center;
-    color: #4a4a4a;
-    font-size: 12px;
-}
+    <div  class="buto" style="cursor: pointer; display: flex; align-items: center; padding: 40px 20px ; border-radius: 10px; background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"  onclick="wybordokumentumenu()" > 
+        <img src="./dowod_files/card.png" alt="card">
+        <p style="margin-left: 10px; font-weight: bold;">Dane dokumentu</p>
+        <img  src="./dowod_files/arrow.svg" alt="arrow" id="arrow">
+    </div>    
+    <section class="collapsible buto" id="lo" style="cursor: pointer; display: flex; align-items: center; padding: 40px 20px ; border-radius: 10px; background-color: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        
+        <p style="margin-left: -7px; font-weight: bold;">Twoje dodatkowe dane</p>
 
-main {
-    position: relative;
-    background-image: url(../dowod_files/dowodnowybg.svg);
-    margin: 16px 20px 0px 20px;
-    height: 385px;
-    display: flex;
-    border-radius: 12px 12px 0px 0px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-}
-
-#lew {
-    position: relative;
-    margin: 20px;
-    width: 45%;
-}
-
-#lew #zdjecie {
-    border-radius: 16px;
-    width: 100%;
-}
-
-#lew #flaga {
-    width: 55%;
-    margin: 0;
-}
-
-#lew #godlo {
-    width: 25%;
-}
-
-#lew p {
-    font-size: 11px;
-    color: #808080;
-}
-
-#rzecz {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-}
-#rzecz p{
-    margin-left: 4px;
-}
-#praw{
-    position: relative;
-    margin: 20px;
-    width: 65%;
-}
-#praw p:not(.sub){
-    font-size: 15px;
-    color: #1d1d1d;
-    font-weight: 600;
-}
-#praw .sub{
-    font-size: 12px;
-    color: #4a4a4a;
-    font-weight: 500;
-}
-#praw br{
-    content: "";
-    margin: 3em;
-    display: block;
-    font-size: 24%;
-}
-#bottom{
-    position: relative;
-    height: 72px;
-    background-color: #ffffff;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 0px 0px 12px 12px;
-    margin: 0 20px 16px 20px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    color: #598527;
-    font-size: 14px;
-    font-weight: 600;
-}
-#bottom p{
-    margin-left: 20px;
-}
-.buto{
-    margin: 16px 16px 0 16px;
-    height: 80px;
-    display: flex;
-    background-color: #ffffff;
-    padding: 45px 22px;
-    align-items: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
-    border-radius: 17px;
-}
-.buto img:first-of-type:not(.buto img:last-of-type){
-    width: 20px;
-    margin-right: 10px;
-}
-.buto img:last-of-type{
-    margin-left: auto;
-    width: 40px;
-}
-
-#lo{
-    margin-bottom: 0;
-    padding: 0 20px;
-    height: 60px;
-}
-.krecha{
-    height: 0.01rem;
-    width: 100%;
-    background-color: #dddddd;
-}
-.krecha2{
-    height: 0.01rem;
-    width: 100%;
-    background-color: #dddddd;
-    margin-left: 5%;
-    margin: 8px 0;
-}
-.content{
-    margin: 0 16px 0 16px;
-    padding: 0 20px 0px 20px;
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 0px 0px 12px 12px;
-}
-.content .dana{
-    padding: 16px 0 16px 0;
-}
-
-.info{
-    font-size: 14px;
-    color:  rgba(74, 74, 74, 0.99);
-}
-
-.main{
-    font-size: 16px;
-    color: #1d1d1d;
-    font-weight: 600;
-}
-#aktualizuj{
-    margin: 16px 0;
-    margin-left: auto;
-    color: #014a93;
-    font-size: 14px;
-    text-align: center;
-    background-color: #dbeaf9;
-    padding: 6px 16px 6px 16px;
-    border-radius: 24px;
-    letter-spacing: 0.2px;
-}
-.disclaimer{
-    font-size: 8px;
-    color: #dddddd;
-    font-weight: 500;
-    margin: 16px 20px 16px 20px;
-}
-#szaro{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-}
-#wybierzdokument, #danedowodowe{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 95%;
-    width: 100%;
-    z-index: 9999;
-    background-color: #ffffff;
-    border-radius: 32px 32px 0px 0px;
-    display: flex;
-    flex-direction: column;
-}
-#wybierzdokument{
-    align-items: center;
-}
-
-#danedowodowe{
-    align-items: left;
-}
-
-#krech{
-    margin: 16px;
-    height: 0.38rem;
-    width: 35%;
-    background-color: #dddddd;
-    border-radius: 16px;
-}
-#wybierztitle{
-    font-size: 18px;
-    color: #1d1d1d;
-    margin: 48px;
-    font-weight: 600;
-}
-
-#danetitle{
-    font-size: 18px;
-    color: #1d1d1d;
-    margin: 32px 48px 0 32px;
-    font-weight: 600;    
-}
-.wybierzitem{
-    width: 90%;
-    /* height: 27%; */
-    margin-bottom: 32px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    padding: 32px 36px;
-    line-height: 1.2;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.wybierzitem#wi1 {
-    background-image: url(../dowod_files/warstwa_1.png);
-}
-.wybierzitem#wi2 {
-    background-image: url(../dowod_files/warstwa_2.png);
-}
-
-.wybierzitem button{
-    border-radius: 24px;
-    background-color: #014a93;
-    font-family: "Roboto Medium", "Roboto", sans-serif;
-    font-weight: 600;
-    color: #ffffff;
-    text-align: center;
-    line-height: normal;
-    font-size: 16px;
-    padding: 16px;
-    margin-top: 16px;
-    background-repeat: no-repeat;
-}
-
-.zamknijprzycisk{
-    border-radius: 24px;
-    background-color: white;
-    border: #014a93 solid 1px;
-    font-family: "Roboto Medium", "Roboto", sans-serif;
-    font-weight: 600;
-    color: #014a93;
-    text-align: center;
-    line-height: normal;
-    font-size: 16px;
-    padding: 16px;
-    background-repeat: no-repeat;
-    width: 90%;
-    margin: 0 auto;
-}
-
-.wrocprzycisk{
-    border-radius: 24px;
-    border: white solid 1px;
-    background-color: white;
-    font-family: "Roboto Medium", "Roboto", sans-serif;
-    font-weight: 600;
-    color: #014a93;
-    text-align: center;
-    line-height: normal;
-    font-size: 16px;
-    padding: 16px;
-    background-repeat: no-repeat;
-    width: 90%;
-    margin: 0 auto;
-}
-
-
-.dowo{
-    font-size: 24px;
-    color: #1d1d1d;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
-#wi1{
-    background-image: url("../dowod_files/wybierzitem1.svg");
-}
-#wi2{
-    background-image: url("../dowod_files/wybierzitem2.svg");
-}
-.ovh{
-    overflow: hidden;
-}
-
-#arrow, #rotation{
-    padding: 8px;
-}
-
-#danebox{
-    margin: 16px;
-    padding: 16px;
-    border-radius: 16px;
-    border: 1px solid #dddddd;
-}
-
-.seria{
-    font-size: 24px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#kopiuj{
-    color: #014a93;
-    font-size: 14px;
-    text-align: center;
-    background-color: #dbeaf9;
-    padding: 6px 16px 6px 16px;
-    border-radius: 24px;
-    letter-spacing: 0.2px;
-    margin-right: 16px;
-    margin-bottom: 16px;
-}
-
-#bottooom{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        <img src="./images/arrow1.svg" alt="arrow" id="rotation" style="transform: rotate(-90deg);">
+    </section>
+    <div id="rogo">
+        <div class="content">
+            <p class="krecha"></p>
+            <section class="dana">
+                <p class="info">Nazwiskо rodowе</p>
+                <p class="main">DOBROWOLSKA</p>
+            </section>
+            <p class="krecha"></p>
+            <section class="dana">
+                <p class="info">Płеć</p>
+                <p class="main">Kobieta</p>
+            </section>
+            <p class="krecha"></p>
+            <section class="dana">
+                <p class="info">Nazwiskо rodowе ojca</p>
+                <p class="main">Kowalski</p>
+            </section>
+            <p class="krecha"></p>
+            <section class="dana">
+                <p class="info">Nazwiskо rodowе matki</p>
+                <p class="main">Nowak</p>
+            </section>
+            <p class="krecha"></p>
+            <section
