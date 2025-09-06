@@ -6,7 +6,7 @@
     "theme_color": "#FFFFFF",
     "description": "Aplikacja demonstracyjna dla gitów",
     "icons": [{
-      "src": "icons/logo48.png",
+      "src": "",
       "sizes": "48x48",
       "type": "image/png"
     }, {
