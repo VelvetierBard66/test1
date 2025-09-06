@@ -7,22 +7,22 @@
   "description": "Aplikacja demonstracyjna dla gitów",
   "icons": [
     {
-      "src": "/icon.png", 
+      "src": "https://i.imgur.com/hpmyNb2.png", 
       "sizes": "64x64",   
       "type": "image/png"
     },
     {
-      "src": "/icon-192x192.png",
+      "src": "https://i.imgur.com/hpmyNb2.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/icon-512x512.png",
+      "src": "https://i.imgur.com/hpmyNb2.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "/icon-512x512.png",  
+      "src": "https://i.imgur.com/hpmyNb2.png",  
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
